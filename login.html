@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./asset/css/form.css">
+</head>
+
+<body>
+    <div class="main">
+        <form action="" method="POST" class="form" id="form-2">
+
+            <div class="spacer"></div>
+
+            <div class="form-group">
+                <label for="fullname" class="form-label">Full name</label>
+                <input autocomplete="off" id="fullname" name="fullname" type="text" placeholder="User Name"
+                    class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input autocomplete="off" id="password" name="password" type="password" placeholder="Password"
+                    class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group form-group_row">
+                <input autocomplete="off" id="password_confirmation" name="password_confirmation"
+                    placeholder="Nhập lại mật khẩu" type="checkbox" class="">
+                <label for="password_confirmation" class="form-label_input">Remember me</label>
+                <span class="form-message"></span>
+            </div>
+
+            <button class="form-submit">LOGIN</button>
+
+
+
+            <div class="form-footer">
+                <span>
+                    Not a member? <a href="./resigter.html">Signup now</a></span>
+            </div>
+        </form>
+        <div class="alert hide">
+            <div class="alert-container">
+                <span>đâsdasd</span>
+                <button class="logout">LOG OUT</button>
+
+            </div>
+        </div>
+
+    </div>
+    <script src="./asset/js/validate.js"></script>
+    <script>
+        const alerts = document.querySelector(".alert");
+        const text = document.querySelector(".alert span");
+        const submit = document.querySelector('.form-submit');
+        validator({
+            form: "#form-2",
+            errorSelector: '.form-message',
+            formGroupSelector: '.form-group',
+            rules: [
+                validator.isRequired('#fullname', 'vui lòng nhập tên đầy đủ'),
+                validator.minLength('#password', 5),
+            ],
+            onsubmit: function (data) {
+                const submit = document.querySelector('.form-submit');
+                const logout = document.querySelector('.logout')
+                const user = JSON.parse(localStorage.getItem(fullname.value));
+                const newarr = data;
+                if (user === null) {
+                    alert('tài khoản hoặc mật khẩu không chính xác');
+                } else if (newarr.fullname === user.fullname && newarr.password === user.password) {
+                    alerts.classList.remove('hide');
+                    text.textContent = `chúc mừng tài khoản ${newarr.fullname} đăng nhập thành công`;
+                    submit.classList.add("hide");
+                    logout.addEventListener('click', function () {
+                        alerts.classList.add("hide");
+                        submit.classList.remove('hide');
+                    });
+                } else {
+                    alert('tài khoản hoặc mật khẩu không chính xác');
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

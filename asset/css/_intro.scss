@@ -1,0 +1,28 @@
+.intro {
+  padding: 65px 40px 40px 40px;
+  text-align: center;
+  &-wrap {
+    text-align: center;
+    margin: 0 auto;
+  }
+  &-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-family: orpheuspro;
+    font-size: 25px;
+    font-weight: 100;
+  }
+  &-desc {
+    margin: 1rem 0 0 0;
+    font-family: adobe-garamond-pro, serif;
+    font-weight: 400;
+    line-height: 1.5;
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 739px) {
+  .intro {
+    padding: 65px 17px 40px 17px;
+  }
+}

@@ -1,0 +1,20 @@
+.footer {
+  text-align: center;
+  padding: 22px 32px 0px 32px;
+  &-list {
+    a {
+      font-size: 17px;
+      color: $link-text-color;
+      padding: 0 5px;
+      text-decoration: underline;
+    }
+  }
+  p {
+    font-size: 16px;
+    margin-top: 16px;
+    color: #000;
+  }
+}
+
+@media screen and (min-width: 740px) and (max-width: 1023px) {
+}

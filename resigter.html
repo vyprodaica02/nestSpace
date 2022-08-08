@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./asset/css/form.css">
+</head>
+
+<body>
+    <div class="main">
+
+        <form action="" method="POST" class="form" id="form-1">
+
+
+            <div class="spacer"></div>
+
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input id="email" name="email" type="text" placeholder=" email@domain.com" class="form-control"
+                    autocomplete="off">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="fullname" class="form-label">Full name</label>
+                <input id="fullname" name="fullname" type="text" placeholder="User Name" class="form-control"
+                    autocomplete="off">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input id="password" name="password" type="password" placeholder="Password" class="form-control"
+                    autocomplete="off">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password_confirmation" class="form-label">Confirm Password</label>
+                <input id="password_confirmation" name="password_confirmation" placeholder="Confirm Password"
+                    type="password" class="form-control" autocomplete="off">
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group form-group_row">
+                <input id="check" name="check" placeholder="Nhập lại mật khẩu" type="checkbox" class=""
+                    autocomplete="off">
+                <label for="check" class="form-label_input">I have read and agree to <a href="#">terms</a></label>
+                <span class="form-message"></span>
+            </div>
+
+            <button class="form-submit">SIGN UP</button>
+
+            <div class="form-footer">
+                <span>
+                    Already a member? <a href="./login.html">Login here</a></span>
+            </div>
+        </form>
+    </div>
+    <script src="./asset/js/validate.js"></script>
+    <!-- <script src="./asset/app.js"></script> -->
+    <script>
+        validator({
+            form: "#form-1",
+            errorSelector: '.form-message',
+            formGroupSelector: '.form-group',
+            rules: [
+                validator.isRequired('#fullname', 'vui lòng nhập tên đầy đủ'),
+                validator.isEmail('#email'),
+                validator.minLength('#password', 5),
+                validator.isRequired('input[name="check"]'),
+                validator.isRequired('#password_confirmation'),
+                validator.isConfirmation('#password_confirmation', function () {
+                    return document.querySelector('#form-1 #password').value;
+                }, 'mật khẩu nhập lại không chính xác')
+            ],
+            onsubmit: function (data) {
+                const json = JSON.stringify(data);
+                localStorage.setItem(fullname.value, json)
+                window.location.href = 'login.html';
+            },
+        });
+    </script>
+</body>
+
+</html>

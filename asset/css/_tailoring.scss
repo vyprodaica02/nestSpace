@@ -1,0 +1,19 @@
+.tailoring {
+  background-image: url("https://images.squarespace-cdn.com/content/v1/6014f6d17afdae55ced84a12/47de786f-016d-4f73-bfea-f1d9d76544af/cover-09.jpg?format=2500wio");
+  min-height: 66vh;
+  position: relative;
+  margin-top: 100px;
+  &-wrap {
+    color: $text-while;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  &-title {
+    font-weight: 300;
+    font-family: adobe-garamond-pro;
+    padding-bottom: 45px;
+  }
+}

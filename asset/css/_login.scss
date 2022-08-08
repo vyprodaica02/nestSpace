@@ -1,0 +1,61 @@
+.overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+.form {
+  padding: 40px 20px 20px 20px;
+  background-color: #fff;
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  &-input {
+    a {
+      float: right;
+      color: rgb(19, 164, 116);
+    }
+  }
+  &-footer {
+    margin-top: 50px;
+    border-top: 1px solid #ccc;
+    padding: 20px 0;
+    text-align: center;
+  }
+}
+
+.input-login {
+  display: flex;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  margin: 10px 0;
+  input {
+    border: none;
+    outline: none;
+  }
+}
+
+.input-checkbox {
+  margin-top: 40px;
+}
+
+.btn-login {
+  text-transform: uppercase;
+  width: 100%;
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  background-color: aqua;
+  cursor: pointer;
+}
+
+.login-icon_close {
+  cursor: pointer;
+  position: absolute;
+  top: 3%;
+  right: 7%;
+}
